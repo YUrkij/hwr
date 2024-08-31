@@ -17,16 +17,10 @@ public class Main {
 
         String MyStrung = "Hi world!!!";
 
-        System.out.print(MyByte);
-        System.out.print(MyShort);
-        System.out.print(MyInteger);
-        System.out.print(MyLong);
-        System.out.print(MyFloat);
-        System.out.print(MyDouble);
-        System.out.print(MyChar);
-        System.out.print(TestChar);
-        System.out.print(MyStrung);
-        System.out.print(MyByte + MyDouble);
+        boolean MyBool = true;
+        System.out.println(MyByte + " " + MyShort + " " + MyInteger + " " + MyLong + " " + MyFloat + " " + MyDouble + "    ");
+        System.out.println(MyChar + " " + TestChar + " " + MyStrung);
+        System.out.println(MyBool + " " + MyByte + MyDouble);
 
     }
 }
