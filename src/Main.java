@@ -16,11 +16,31 @@ public class Main {
         char TestChar = '\n';
 
         String MyStrung = "Hi world!!!";
-
         boolean MyBool = true;
-        System.out.println(MyByte + " " + MyShort + " " + MyInteger + " " + MyLong + " " + MyFloat + " " + MyDouble + "    ");
-        System.out.println(MyChar + " " + TestChar + " " + MyStrung);
-        System.out.println(MyBool + " " + MyByte + MyDouble);
+
+        
+        System.out.println("Числовые : " + MyByte + " " + MyShort + " " + MyInteger + " " + MyLong);
+        System.out.println("Дробные : " + MyFloat + " " + MyDouble);
+        System.out.println("Знаковые + строка : " +MyChar + " " + TestChar + " " + MyStrung);
+        System.out.println("Логические : " + MyBool);
+
+        MyInteger = 22;
+        MyShort = 7;
+        int ResultInt = MyInteger + MyShort;
+        System.out.println(MyInteger + " + " + MyShort + " = " + ResultInt);
+        ResultInt = MyInteger - MyShort;
+        System.out.println(MyInteger + " - " + MyShort + " = " + ResultInt);
+        ResultInt = MyInteger / MyShort;
+        System.out.println(MyInteger + " / " + MyShort + " = " + ResultInt + " Целочисленное деление");
+        ResultInt = MyInteger % MyShort;
+        System.out.println(MyInteger + " % " + MyShort + " = " + ResultInt + " Остаток от деления");
+        double ResultDou = (double) MyInteger / MyShort;
+        System.out.println(MyInteger + " / " + MyShort + " = " + ResultDou + " Деление без остатка" + "\n");
+
+        MyBool = true;
+        boolean MyBln = !MyBool;
+        System.out.println("!" + MyBool + " = " + MyBln );
+
 
     }
 }
