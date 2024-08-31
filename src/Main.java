@@ -2,14 +2,31 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.print("Hello and welcome!");
+        byte MyByte; //объявление
+        MyByte = - 128; //инициализация
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        short MyShort = 127;
+        int MyInteger = 127_902;
+        long MyLong = 3_000_000_000L;
+
+        float MyFloat = 3.0f;
+        double MyDouble = 3.0;
+
+        char MyChar = 'a';
+        char TestChar = '\n';
+
+        String MyStrung = "Hi world!!!";
+
+        System.out.print(MyByte);
+        System.out.print(MyShort);
+        System.out.print(MyInteger);
+        System.out.print(MyLong);
+        System.out.print(MyFloat);
+        System.out.print(MyDouble);
+        System.out.print(MyChar);
+        System.out.print(TestChar);
+        System.out.print(MyStrung);
+        System.out.print(MyByte + MyDouble);
+
     }
 }
