@@ -1,58 +1,112 @@
 import java.util.Random;
 import java.util.Scanner;
 
-        public class Main {
+
+public class Main {
             public static void main(String[] args) {
-                /*
-                byte MyByte; //объявление
-                MyByte = - 128; //инициализация
-
-                short MyShort = 127;
-                int MyInteger = 127_902;
-                long MyLong = 3_000_000_000L;
-
-                float MyFloat = 3.0f;
-                double MyDouble = 3.0;
-
-                char MyChar = 'a';
-                char TestChar = '\n';
-
-                String MyStrung = "Hi world!!!";
-                boolean MyBool = true;
-
-
-                System.out.println("Числовые : " + MyByte + " " + MyShort + " " + MyInteger + " " + MyLong);
-                System.out.println("Дробные : " + MyFloat + " " + MyDouble);
-                System.out.println("Знаковые + строка : " +MyChar + " " + TestChar + " " + MyStrung);
-                System.out.println("Логические : " + MyBool);
-                */
-                // Пункт 1
                 Scanner sc = new Scanner(System.in);
-                System.out.print("Введите первое число для арифметических операций: ");
-                int myInt1 = sc.nextInt();
-                System.out.print("Введите первое число для арифметических операций: ");
-                int myInt2 = sc.nextInt();
-                System.out.println(myInt1 + " + " + myInt2 + " = " + (myInt1 + myInt2));
-                System.out.println(myInt1 + " - " + myInt2 + " = " + (myInt1 - myInt2));
-                System.out.println(myInt1 + " / " + myInt2 + " = " + (myInt1 / myInt2) + " Целочисленное деление");
-                System.out.println(myInt1 + " % " + myInt2 + " = " + (myInt1 % myInt2) + " Остаток от деления");
-                System.out.println(myInt1 + " / " + myInt2 + " = " + ((double) myInt1 / myInt2) + " Деление без остатка" + "\n");
-                // Пункт 2
                 Random rnd = new Random();
-                myInt1 = rnd.nextInt(Character.MIN_CODE_POINT, Character.MAX_CODE_POINT);
-                myInt2 = rnd.nextInt(Character.MIN_CODE_POINT, Character.MAX_CODE_POINT);
-                int myInt3 = rnd.nextInt(Character.MIN_CODE_POINT, Character.MAX_CODE_POINT);
-                int myInt4 = rnd.nextInt(Character.MIN_CODE_POINT, Character.MAX_CODE_POINT);
-                char ch1 = (char) myInt1, ch2 = (char) myInt2, ch3 = (char) myInt3, ch4 = (char) myInt4;
-                System.out.print(ch1);
-                System.out.print(ch2);
-                System.out.print(ch3);
-                System.out.println(ch4);
-                // Пункт 3
-                long ln = Long.MAX_VALUE;
-                myInt1 = (int) ln;
-                System.out.println(ln + " : long");
-                System.out.println(myInt1 + " : переполненный int");
 
+                System.out.println("Добро пожаловать в кофейный аппарат!");
+                System.out.println("Код воспринимает только символы в верхнем регистре, указанные в скобках.");
+                System.out.println("Вы хотите приготовить кофе? (Д/Н)");
+                String answer = sc.next();
+
+                if (answer.equals("Д")) {
+                    System.out.println("Начало приготовления кофе");
+
+                    // Подготовка ингредиентов
+                    String coffee = "кофе";
+                    String water = "воды";
+                    String sugar = "сахаром";
+                    String milk = "молоком";
+                    String spinach = "шпинат";
+
+                    // Измельчение кофе
+                    System.out.println("Измельчение кофе...");
+                    coffee = "Измельченный " + coffee;
+
+                    // Нагревание воды
+                    System.out.println("Нагревание воды...");
+                    boolean isNotBoild = true;
+                    int temperature = 15;
+                    while (temperature < 110 & isNotBoild){
+                        System.out.println("Текущая температура "+ water + " " + temperature + "°C");
+                        System.out.println("Нагреть её? (Д/Н)");
+                        answer = sc.next();
+                        if (answer.equals("Д")){
+                            temperature += rnd.nextInt(10) + 20;
+                        } else if (answer.equals("Н")){
+                            isNotBoild = false;
+                        } else {
+                            System.out.println("Неверный формат ответа");
+                        }
+
+                    }
+                    String temp;
+                    if (temperature >= 110) {
+                        System.out.println("Вся вода выкипела");
+                        water = "святого духа";
+                        temp = "Сухой";
+                    } else if (temperature >= 75) {
+                        water = "горячей " + water;
+                        temp = "Горячий";
+                    } else if (temperature >= 40) {
+                        water = "тёплой " + water;
+                        temp = "Тёплый";
+                    } else {
+                        water = "холодной " + water;
+                        temp = "Холодный и плохозаваренный ";
+                    }
+
+                    // Заваривание кофе
+                    System.out.println("Заваривание кофе с помощью " + water);
+                    coffee = temp + coffee;
+
+
+                    // Процеживание кофе
+                    System.out.println("Хотите ли вы процеживать кофе? (Д/Н)");
+                    answer = sc.next();
+                    if (answer.equals("Д")) {
+                        System.out.println("Процеживание кофе...");
+                        coffee = "Процеженный " + coffee;
+                    }
+
+                    // Добавление сахара, молока и шпината (по желанию)
+                    boolean thShugar = false;
+                    System.out.println("Хотите ли вы добавить сахар? (Д/Н)");
+                    answer = sc.next();
+                    if (answer.equals("Д")) {
+                        System.out.println("Добавление сахара ...");
+                        coffee = coffee + " с " + sugar;
+                        thShugar = true;
+                    }
+                    System.out.println("Хотите ли вы добавить молоко? (Д/Н)");
+                    answer = sc.next();
+                    if (answer.equals("Д")) {
+                        System.out.println("Добавление молока...");
+                        if (thShugar) {
+                            coffee = coffee + " и " + milk;
+                        }else {
+                            coffee = coffee + " с " + milk;
+                        }
+                    }
+                    System.out.println("Хотите ли вы добавить шпината? (Д/Н)");
+                    answer = sc.next();
+                    if (answer.equals("Д")) {
+                        System.out.println("Добавление шпината...");
+                            coffee = coffee + " в который вы зачем то добавили " + spinach;
+                    }
+                    // Перемешивание
+                    System.out.println("Перемешивание кофе...");
+                    coffee = "Перемешанный " + coffee;
+
+                    // Подача кофе
+                    System.out.println("Ваш кофе готов! Вы приготовили: " + coffee);
+                } else if (answer.equals("Н")){
+                    System.out.println("Ок, может быть в следующий раз.");
+                } else {
+                    System.out.println("Ошибка, введён неверный символ");
+                }
             }
         }
