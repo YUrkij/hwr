@@ -14,7 +14,7 @@ public class Main {
 
     public static void exer1(String str){
         StringBuilder sbild = new StringBuilder();
-        for (int i = 0; i < (str.length() / 2); i++){
+        for (int i = str.length() - 1; i > (str.length() / 2); i--){
         sbild.append(str.charAt(i));
     }
     if (str.startsWith(sbild.toString())){
