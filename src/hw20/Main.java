@@ -2,11 +2,11 @@ package hw20;
 
 public class Main {
 
-    public static int[] zadacha2(double[] array) {
+    public static double[] zadacha2(double[] array) {
         //минимальное и максимальное значение элементов массива
         int[] maxmin = new int[2];
         if (array.length == 0) {
-            return maxmin;
+            return new double[] {};
         }
         for (int i = 1; i < array.length; i++) {
             if (array[maxmin[0]] < array[i]) {
@@ -15,7 +15,7 @@ public class Main {
                 maxmin[1] = i;
             }
         }
-        return maxmin;
+        return new double[] {array[maxmin[0]],array[maxmin[1]]};
     }
 
     /**
