@@ -2,22 +2,21 @@ package hw30;
 
 public class Main {
     public static void main(String[] args) {
-        Book oldBook = new Book();
-        Book newBook = new Book();
-        Author author1 = new Author();
-        Author author2 = new Author();
+        Author author1 = new Author( "Leonid", "Tolstoy");
+        Book oldBook = new Book("War and peace",author1,1989);
+        Book newBook = new Book("47 libra",new Author( "Boris", "Shtern"),2016);
 
-        author1.setName("Leonid");
-        author1.setSurname("Tolstoy");
-        author2.setName("Boris");
-        author2.setSurname("Shtern");
-        oldBook.setName("War and peace");
-        oldBook.setDate(1989);
-        oldBook.setAuthor(author1);
-        newBook.setName("47 libra");
-        newBook.setDate(2016);
-        newBook.setAuthor(author2);
-        System.out.println(oldBook.getBookInfo());
-        System.out.println(newBook.getBookInfo());
+        oldBook.setName("War and Peas");
+        oldBook.setDate(100_000);
+        newBook.setAuthor(new Author("Don", "Juan"));
+
+        System.out.println(oldBook.getName());
+        System.out.println(oldBook.getDate());
+        System.out.println(oldBook.getAuthor().toString());
+
+        System.out.println(newBook.getName());
+        System.out.println(newBook.getDate());
+        System.out.println(newBook.getAuthor().toString());
+
     }
 }

@@ -4,6 +4,14 @@ public class Author {
     private String name;
     private String surname;
 
+    public Author() {
+    }
+
+    public Author(String name, String surname) {
+        this.name = name;
+        this.surname = surname;
+    }
+
     public String getName() {
         return name;
     }
@@ -20,11 +28,11 @@ public class Author {
         this.surname = surname;
     }
 
-    /**
-     *
-     * @return Возвращает имя и фамилию в строке
-     */
-    public String getAuthorInfo(){
-        return getName() + " " + getSurname();
+    @Override
+    public String toString() {
+        return "Author{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                '}';
     }
 }

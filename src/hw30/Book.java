@@ -5,6 +5,15 @@ public class Book {
     private Author author;
     private Integer date;
 
+    public Book() {
+    }
+
+    public Book(String name, Author author, Integer date) {
+        this.name = name;
+        this.author = author;
+        this.date = date;
+    }
+
     public String getName() {
         return name;
     }
@@ -29,11 +38,12 @@ public class Book {
         this.date = date;
     }
 
-    /**
-     *
-     * @return Возвращает название, имя и фамилию автора и дату печати в строке
-     */
-    public String getBookInfo() {
-        return getName() + " " + getAuthor().getAuthorInfo() + " " + getDate();
+    @Override
+    public String toString() {
+        return "Book{" +
+                "name='" + name + '\'' +
+                ", author=" + author +
+                ", date=" + date +
+                '}';
     }
 }
