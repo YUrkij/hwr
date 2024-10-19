@@ -20,11 +20,12 @@ public class Animal {
         this.name = name;
     }
 
-    public String makeSound(){
+    public String makeSound() {
         return "";
     }
 
-    public void eat(){}
+    public void eat() {
+    }
 
     @Override
     public String toString() {

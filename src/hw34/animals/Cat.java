@@ -12,7 +12,7 @@ public class Cat extends Animal {
     }
 
     @Override
-    public String makeSound(){
+    public String makeSound() {
         return name + " says Мяу-Мяу";
     }
 

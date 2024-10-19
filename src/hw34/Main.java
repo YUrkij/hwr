@@ -4,7 +4,6 @@ import hw34.animals.Animal;
 import hw34.animals.Cat;
 import hw34.animals.Dog;
 import hw34.animals.Bird;
-
 import java.util.Random;
 
 public class Main {
