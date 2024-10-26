@@ -2,8 +2,19 @@ package hw34.animals;
 
 public class Bird extends Animal {
 
-    public Bird(String name) {
+    final private boolean canFly;
+
+    public Bird(String name, boolean canFly) {
         super(name);
+        this.canFly = canFly;
+    }
+
+    @Override
+    public void move() {
+        if(canFly)
+            System.out.println(name + " летает");
+        else
+            System.out.println(name + " бегает");
     }
 
     @Override
@@ -12,7 +23,7 @@ public class Bird extends Animal {
     }
 
     @Override
-    public String makeSound() {
-        return name + " says Чирик-чирик";
+    public void makeSound() {
     }
+
 }

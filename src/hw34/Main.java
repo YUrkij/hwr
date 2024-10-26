@@ -1,34 +1,27 @@
 package hw34;
 
-import hw34.animals.Animal;
-import hw34.animals.Cat;
-import hw34.animals.Dog;
-import hw34.animals.Bird;
-import java.util.Random;
+import hw34.animals.*;
 
 public class Main {
     public static void main(String[] args) {
-        Random rnd = new Random();
-        Animal[] animals = new Animal[7];
-        for (int i = 0; i < 7; i++) {
-            animals[i] = new Animal();
-            String name = switch (rnd.nextInt(0, 3)) {
-                case 0 -> "Cat";
-                case 1 -> "Dog";
-                case 2 -> "Bird";
-                default -> "";
-            };
 
-            animals[i] = switch (name) {
-                case "Cat" -> new Cat("Cat " + i);
-                case "Dog" -> new Dog("Dog " + i);
-                case "Bird" -> new Bird("Bird " + i);
-                default -> new Animal();
-            };
-        }
+        Animal[] animals = {
+                new Dog("Рекс"),
+                new Cat("Варежка"),
+                new Bird("Чижик", true),
+                new Bird("Эму",false)
+        };
 
-        for (int i = 0; i < 7; i++) {
-            System.out.println(animals[i].makeSound());
+        for (Animal animal : animals){
+            animal.makeSound();
+            animal.move();
+            animal.eat();
+
+            if (animal instanceof Pet){
+                ((Pet) animal).play();
+                ((Pet) animal).beFrendly();
+            }
+            System.out.println();
         }
     }
 }

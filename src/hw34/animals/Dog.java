@@ -1,8 +1,14 @@
 package hw34.animals;
 
-public class Dog extends Animal {
+public class Dog extends Animal implements Pet {
+
     public Dog(String name) {
         super(name);
+    }
+
+    @Override
+    public void move() {
+        System.out.println(name + " бегает");
     }
 
     @Override
@@ -11,7 +17,16 @@ public class Dog extends Animal {
     }
 
     @Override
-    public String makeSound() {
-        return name + " says Гав-Гав";
+    public void makeSound() {
+    }
+
+    @Override
+    public void play() {
+        System.out.println(name + " бегает за палкой");
+    }
+
+    @Override
+    public void beFrendly() {
+        System.out.println(name + " дружелюбно лает");
     }
 }

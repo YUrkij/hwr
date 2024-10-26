@@ -1,12 +1,9 @@
 package hw34.animals;
 
-public class Animal {
+public abstract class Animal {
 
     protected String name;
 
-    public Animal() {
-        this.name = null;
-    }
 
     public Animal(String name) {
         this.name = name;
@@ -20,13 +17,11 @@ public class Animal {
         this.name = name;
     }
 
-    public String makeSound() {
-        return "";
-    }
+    public abstract void makeSound();
 
-    public void eat() {
-    }
+    public abstract void eat();
 
+    public abstract void move();
     @Override
     public String toString() {
         return "Animal{" +
