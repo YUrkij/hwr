@@ -15,11 +15,22 @@ public class Player {
     static int playerCount = 0;
     static int tiredCount = 0;
 
-    public Player() {
+    private Player() {
         playerCount++;
         this.id = playerCount;
         Random rnd = new Random();
         this.stamina = rnd.nextInt(MIN_START_STAMINA,MAX_STAMINA + 1);
+    }
+
+    /**
+     * Если команды неполные, возвращает новый объект игрока, иначе возвращает null.
+     */
+    public static Player addPlayer(){
+        if (playerCount - tiredCount < MAX_PLAYERS_ON_FIELD){
+            return new Player();
+        } else {
+            return null;
+        }
     }
 
     public int getStamina() {
@@ -30,8 +41,12 @@ public class Player {
         return id;
     }
 
+    public boolean isTired() {
+        return isTired;
+    }
+
     /**
-     * Уменьшает стамину вызываемого Player на 1
+     * Уменьшает стамину вызываемого Player на 1. Если стамина уменьшается до MIN_STAMINA, то Player уходит с поля
      */
     public void run(){
         if(!isTired) {
@@ -55,20 +70,6 @@ public class Player {
         } else {
             System.out.println("Команды неполные. На поле ещё есть " + (MAX_PLAYERS_ON_FIELD - (playerCount - tiredCount))
                     + " свободных мест.");
-        }
-    }
-
-    /**
-     * Востанавливает стамину на 3, но не больше максимума
-     */
-    public void rest(){
-        if(this.isTired) {
-            this.isTired = false;
-            tiredCount -= 1;
-        }
-        this.stamina += 3;
-        if(this.stamina > MAX_STAMINA){
-            this.stamina = MAX_STAMINA;
         }
     }
 
