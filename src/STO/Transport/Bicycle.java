@@ -1,6 +1,6 @@
 package STO.Transport;
 
-public class Bicycle extends WheeledTransport{
+public final class Bicycle extends WheeledTransport{
     private String bicycleType;
 
     public Bicycle(int wheelCount, float maxSpeed, String bicycleType) {
@@ -11,6 +11,7 @@ public class Bicycle extends WheeledTransport{
     @Override
     public void service() {
         super.service();
+        System.out.print(",в велосипеде " + bicycleType + " типа");
     }
 
     @Override

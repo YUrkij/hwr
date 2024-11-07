@@ -16,5 +16,6 @@ public class Main {
         sto.getCash();
         sto.servTransport(truck);
         sto.getCash();
+
     }
 }

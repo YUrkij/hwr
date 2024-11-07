@@ -10,10 +10,7 @@ public class ServiceStation {
 
     void servTransport(Transport transport){
         transport.service();
-        this.cash++;
-        if (transport.getClass().equals(Truck.class)){
-            this.cash++;
-        }
+        this.cash += transport.get_price();
     }
 
     public void getCash() {

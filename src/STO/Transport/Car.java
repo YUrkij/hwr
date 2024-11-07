@@ -1,6 +1,6 @@
 package STO.Transport;
 
-public class Car extends MotorTransport{
+public final class Car extends MotorTransport{
     private String mark;
     private String model;
 

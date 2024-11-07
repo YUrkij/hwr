@@ -1,7 +1,10 @@
 package STO.Transport;
 
-public class Truck extends MotorTransport{
+public final class Truck extends MotorTransport{
     private int overWeight;
+
+    static final int PRICE = 2;
+
 
     public Truck(int wheelCount, float maxSpeed, String fuelType, int overWeight) {
         super(wheelCount, maxSpeed, fuelType);
@@ -42,6 +45,11 @@ public class Truck extends MotorTransport{
     @Override
     public void setFuelType(String fuelType) {
         super.setFuelType(fuelType);
+    }
+
+    @Override
+    public int get_price() {
+        return PRICE;
     }
 
     public int getOverWeight() {
