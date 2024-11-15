@@ -2,75 +2,54 @@ package Game.Objects;
 
 import java.util.Random;
 
-public class Player {
-    final private int id;
+public class Player implements isPlayer {
+    private static final Random rnd = new Random();
+    private String name;
     private int stamina;
-    private boolean isTired = false;
-
     static final private int MAX_STAMINA = 10;
     static final private int MIN_START_STAMINA = 8;
     static final private int MIN_STAMINA = 0;
-    static final private int MAX_PLAYERS_ON_FIELD = 6;
 
-    static int playerCount = 0;
     static int tiredCount = 0;
 
-    private Player() {
-        playerCount++;
-        this.id = playerCount;
-        Random rnd = new Random();
-        this.stamina = rnd.nextInt(MIN_START_STAMINA,MAX_STAMINA + 1);
+    public Player(String name) {
+        init(name);
     }
 
     /**
-     * Если команды неполные, возвращает новый объект игрока, иначе возвращает null.
+     * Инициализация объекта
+     * @param name
      */
-    public static Player addPlayer(){
-        if (playerCount - tiredCount < MAX_PLAYERS_ON_FIELD){
-            return new Player();
-        } else {
-            return null;
-        }
+    public void init(String name) {
+        this.stamina = rnd.nextInt(MIN_START_STAMINA,MAX_STAMINA + 1);
+        this.name = name;
     }
 
     public int getStamina() {
         return stamina;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public boolean isTired() {
-        return isTired;
+    public String getName() {
+        return name;
     }
 
     /**
      * Уменьшает стамину вызываемого Player на 1. Если стамина уменьшается до MIN_STAMINA, то Player уходит с поля
      */
     public void run(){
-        if(!isTired) {
-            this.stamina -= 1;
-            if (getStamina() <= MIN_STAMINA) {
-                this.isTired = true;
-                this.stamina = MIN_STAMINA;
-                tiredCount += 1;
-            }
-        } else {
-            System.out.println("Игрок № " + getId() + " устал");
+        this.stamina -= 1;
+        if (this.stamina <= MIN_STAMINA){
+            Game.playerOut(this);
         }
     }
 
     /**
-     * Выводит в консоль кол-во недостающих игроков на поле.
+     * Обнуляет стамину.
      */
-    public static void info(){
-        if (playerCount - tiredCount >= MAX_PLAYERS_ON_FIELD){
-            System.out.println("На поле нет свободных мест");
-        } else {
-            System.out.println("Команды неполные. На поле ещё есть " + (MAX_PLAYERS_ON_FIELD - (playerCount - tiredCount))
-                    + " свободных мест.");
-        }
+    public void runOut(){
+        this.stamina = MIN_STAMINA;
+        this.run();
     }
+
 
 }
