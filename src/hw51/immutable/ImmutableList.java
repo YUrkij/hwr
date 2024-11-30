@@ -11,8 +11,14 @@ public class ImmutableList {
 
     public ImmutableList(String name, List<Integer> numbers, MyMutableClass mmc) {
         this.name = name;
-        this.numbers = numbers;
-        this.mmc = mmc;
+        this.numbers = new ArrayList<>(numbers);
+        this.mmc = new MyMutableClass(mmc);
+    }
+
+    public ImmutableList(ImmutableList IM) {
+        this.name = IM.getName();
+        this.numbers = IM.getNumbers();
+        this.mmc = IM.getMmc();
     }
 
     public String getName() {
