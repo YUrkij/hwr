@@ -1,9 +1,11 @@
 package hw3940.obj;
 
+import java.util.Objects;
+
 public class House {
-    private final int floorCount;
-    private final int roomCount;
-    private final boolean isGarageExist;
+    private final Integer floorCount;
+    private final Integer roomCount;
+    private final Boolean isGarageExist;
 
     private House(Builder builder) {
         this.floorCount = builder.floorCount;
@@ -42,5 +44,24 @@ public class House {
             return new House(this);
         }
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(floorCount, roomCount, isGarageExist);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
+        House home = (House) obj;
+        Integer hash = hashCode();
+        Integer obHash = hashCode();
+        return floorCount.equals(home.floorCount) && roomCount.equals(home.roomCount) && isGarageExist.equals(home.isGarageExist) && hash.equals(obHash);
+    }
+
+
+
 
 }
