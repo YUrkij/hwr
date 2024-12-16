@@ -1,5 +1,7 @@
 package hw59;
 
+import java.util.Objects;
+
 public class Book {
     private static int curId = 1;
     private final int id;
@@ -42,5 +44,19 @@ public class Book {
                 ", author='" + author + '\'' +
                 ", isAvailable=" + isAvailable +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Book book = (Book) obj;
+        return id == book.id && isAvailable == book.isAvailable && Objects.equals(title, book.title) && Objects.equals(author, book.author);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, author, isAvailable);
     }
 }
