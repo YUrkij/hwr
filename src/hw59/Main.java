@@ -39,7 +39,9 @@ public class Main {
         Book book3 = new Book( "1984", "Джордж Оруэл", true);
         Book book4 = new Book( "Мятная сказка", "Александр Полярный", false);
         Book book5 = new Book( "Без названия", "Неизвестный", true);
-        Book book6 = new Book( "Приключения Шерлока Холмса", "Артур Конан Дойл", true);
+        Book book6 = new Book( "Ещё названия", "Неизвестный", true);
+        Book book7 = new Book( "Опять названия", "Неизвестный", true);
+        Book book8 = new Book( "Приключения Шерлока Холмса", "Артур Конан Дойл", true);
 
         library.addBook(book1);
         library.addBook(book2);
@@ -47,6 +49,8 @@ public class Main {
         library.addBook(book4);
         library.addBook(book5);
         library.addBook(book6);
+        library.addBook(book7);
+        library.addBook(book8);
         return library;
     }
 }

@@ -1,9 +1,7 @@
 package hw59;
 
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Library {
     private final Map<Integer, Book> books = new HashMap<>();
@@ -59,4 +57,25 @@ public class Library {
                 .toList();
     }
 
+    public Map<Boolean, List<Book>> getAvailabilityMap() {
+        return books.values().stream()
+                .collect(Collectors.partitioningBy(Book::isAvailable));
+    }
+
+    public Map<String, List<Book>> getAuthorBooksGroup() {
+        return books.values().stream()
+                .collect(Collectors.groupingBy(Book::getAuthor));
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(books);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Library lib = (Library) obj;
+        return lib.getBooks() == getBooks();
+    }
 }
